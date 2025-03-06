@@ -12,9 +12,9 @@ import { CiInstagram } from "react-icons/ci";
 const Footer = () => {
   return (
     <footer className="bg-black text-white">
-      <section className="mx-[20px] flex items-start lg:flex-nowrap flex-wrap justify-between gap-10  lg:mx-32 pt-20 pb-24 ">
-        {/* Exclusive Section */}
-        <div className='md:max-w-[217px] max-w-full w-full'>
+      <section className="mx-[20px]   lg:mx-32 pt-20  ">
+      <div className='flex items-start lg:flex-nowrap flex-wrap mb-[60px]  justify-between gap-10 '>
+      <div className='md:max-w-[217px] max-w-full w-full'>
           <h1 className="font-bold text-2xl mb-4">Exclusive</h1>
           <p className="font-medium text-lg mb-2">Subscribe</p>
           <span className="block mb-4 text-sm">Get 10% off your first order</span>
@@ -30,7 +30,6 @@ const Footer = () => {
           </form>
         </div>
 
-        {/* Support Section */}
         <div className='md:max-w-[217px] max-w-full w-full'>
           <h1 className="text-lg font-medium mb-4">Support</h1>
           <p className="text-sm mb-2">111 Bijoy sarani, Dhaka, DH 1515, Bangladesh.</p>
@@ -38,7 +37,6 @@ const Footer = () => {
           <p className="text-sm">+88015-88888-9999</p>
         </div>
 
-        {/* Account Section */}
         <div className='md:max-w-[217px] max-w-full  w-full'>
           <h1 className="text-lg font-medium mb-4">Account</h1>
           <ul className="text-sm space-y-2">
@@ -50,7 +48,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Quick Links */}
         
         <div className='md:max-w-[217px] max-w-full  w-full'>
           <h1 className="text-lg font-medium mb-4">Quick Link</h1>
@@ -62,7 +59,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Download App */}
         <div className='md:max-w-[217px] w-full max-w-full'>
           <h1 className="text-lg font-medium mb-4">Download App</h1>
           <p className="text-[12px] w-max text-text mb-2">Save $3 with App New User Only</p>
@@ -73,7 +69,6 @@ const Footer = () => {
               <Image src={app} width={110} height={40} alt="App Store" />
             </div>
           </div>
-          {/* Social Media */}
           <div className='flex items-center gap-6 mt-6'>
           <Link href={"/"}>
             <GrFacebookOption size={24} />
@@ -89,7 +84,10 @@ const Footer = () => {
             </Link>
           </div>
         </div>
+      </div>
       </section>
+      <p className=' w-full pb-6 border-t border-[#353535] pt-4 text-[#353535]  text-center '>©  Copyright Rimel 2022. All right reserved</p>
+
     </footer>
   );
 };

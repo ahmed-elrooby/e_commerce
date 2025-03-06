@@ -1,6 +1,6 @@
 
 "use client"
-import React, {  useState } from 'react'
+import React from 'react'
 
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";

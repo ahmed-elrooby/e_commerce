@@ -29,18 +29,41 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.custom-swiper .swiper-pagination-bullet {
-  width: 14px;
-  height: 14px;
-  opacity: 0.5;
-  background-color: #ffff;
-}
 
 
-.custom-swiper .swiper-pagination-bullet-active {
-  opacity: 1;
-  background-color: red;
-}
 option{
   background-color: black;
+}
+
+
+
+.swiper{
+  padding-bottom: 88px !important;
+}
+.swiper-pagination-bullet {
+  background-color: #c4c4c4;
+  width:12px !important;
+  height:12px !important;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+
+}
+.swiper-pagination-bullet-active{
+  background-color:#B3B3B3 !important;
+  position: relative !important;
+}
+.swiper-pagination-bullet-active::after{
+  content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -80%);
+    width: 7px;
+    height: 7px;
+    background-color: #DB4444;
+    border-radius: 50%;
+    opacity: 0.8;
+    transition: all 0.3sease;
+    margin: 2px;
+
 }

@@ -5,7 +5,7 @@ import { RiShieldCheckLine } from "react-icons/ri";
 
 const Services = () => {
   return <>
-  <section className='mb-12 '>
+  <section className='mb-[140px] '>
 
     <div className='mx-auto'>
     <div className='flex  justify-center flex-wrap gap-[80px]  items-center  '>

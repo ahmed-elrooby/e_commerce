@@ -1,9 +1,9 @@
-import ContactPage from '@/components/ContactPage/ContactPage'
+import WhishList from '@/components/WhishList/WhishList'
 import React from 'react'
 
 const page = () => {
   return <>
-  <ContactPage />
+  <WhishList />
   </>
 }
 
