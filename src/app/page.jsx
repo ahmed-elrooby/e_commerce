@@ -9,7 +9,7 @@ import Services from "@/components/Services/Services";
 
 export default function Page() {
   return <>
-  <div className="mx-[10px] lg:mx-[135px]">
+  <div className="mx-[10px] md:mx-[136px]">
     <Home />
   <FlashSales />
   <Categories />

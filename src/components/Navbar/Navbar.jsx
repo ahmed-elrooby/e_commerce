@@ -42,7 +42,7 @@ useEffect(() => {
 
         <div className="flex md:order-2 space-x-3 md:space-x-0 items-center gap-[10px] md:gap-[24px] rtl:space-x-reverse">
           <form className="relative hidden md:block">
-            <input type="search" className="pl-[20px] py-[7px] focus:outline-none text-[#7D8184] max-w-full w-[243px] bg-[#F5F5F5] border-none rounded-[4px]" placeholder="What are you looking for?" />
+            <input type="search" className="pl-[10px] py-[7px] focus:outline-none text-[#7D8184] max-w-full w-[223px] bg-[#F5F5F5] border-none rounded-[4px]" placeholder="What are you looking for?" />
             <CiSearch size={24} className="absolute translate-y-[-50%] text-[#7D8184] text-[24px] top-1/2 right-1" />
           </form>
           <div className="flex items-center gap-4 ">

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 import QueryProvider from "@/components/QueryProvider/QueryProvider";
+import Up from "@/components/UP/Up";
 
 
 const geistPoppins= Poppins({
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
         className={`${geistPoppins.variable}  antialiased`}
 
       >
+        <Up />
         <QueryProvider>
         <Navbar/>
         {children}

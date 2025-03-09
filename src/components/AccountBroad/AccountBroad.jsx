@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
 
-const Broad = () => {
+const AccountBroad = () => {
     const path = usePathname();
 
   return <>
@@ -20,6 +20,10 @@ const Broad = () => {
       </li>
   
       <li className="relative flex items-center">
+        <Link href="/MyAccount"
+                  className="flex h-10 items-center gap-1.5 px-2 sm-px-4 transition hover:text-gray-500 "
+
+        >
         <span
           className=""
         >
@@ -30,9 +34,24 @@ const Broad = () => {
           className="flex items-center  font-medium text-sm transition   ps-4"
         >
   {path.split("/")[1]}
-        </span>
+        </span></Link>
       </li>
-      
+      {path.split("/")[2]?
+        <li className="relative flex items-center">
+        <span
+          className=""
+        >
+          /
+        </span>
+  
+        <span
+          className="flex items-center  font-medium text-sm transition   ps-4"
+        >
+  {path.split("/")[2]}
+        </span>
+      </li>:""
+      }
+     
 
       
     </ol>
@@ -41,4 +60,4 @@ const Broad = () => {
   </>
 }
 
-export default Broad
+export default AccountBroad
