@@ -1,8 +1,23 @@
-
-import React from 'react'
+"use client"
+import React, { useEffect } from 'react'
 import Broad from '../Broad'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
 const Profile = () => {
+
+const getinfo = async ()=>{
+const data = await axios.get("https://a7mde-commerce.runasp.net/api/Account/UserInfo",{
+  headers:{
+    Authorization: `Bearer ${Cookies.get('tokenUser')}`,
+  }
+})
+console.log(data)
+}
+useEffect(() => {
+getinfo()
+}, [])
+
   return<>
   <section className='shadow-lg w-full mb-[140px] '>
    <div className='px-20 py-10'>

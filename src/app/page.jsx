@@ -3,9 +3,9 @@ import Featured from "@/components/Featured/Featured";
 import FlashSales from "@/components/FlashSales/FlashSales";
 import Home from "@/components/Home/Home";
 import Music from "@/components/Music/Music";
-import OurProducts from "@/components/OurProducts/OurProducts";
 import SellingProducts from "@/components/SellingProducts/SellingProducts";
 import Services from "@/components/Services/Services";
+import ExploreProducts from "@/components/ExplorerProducts/ExplorerProducts";
 
 export default function Page() {
   return <>
@@ -15,7 +15,7 @@ export default function Page() {
   <Categories />
   <SellingProducts/>
   <Music/>
-  <OurProducts />
+  <ExploreProducts />
   <Featured />
   <Services />
   </div>

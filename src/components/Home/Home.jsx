@@ -2,70 +2,42 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React from 'react'
+import React, { useContext } from 'react'
 import apple from "../../Images/apple.png"
 import { GoArrowRight } from "react-icons/go";
 import hero from "../../Images/hero.png"
 
 import "swiper/css";
 import "swiper/css/pagination";
-import axios from 'axios'
+import { context } from '@/Context/ContextData'
+import HomeSkeleton from './HomeSkeleton'
 const Home = () => {
-  const router = useRouter()
-  const handleChange=(e)=>{
-    const value = e.target.value;
-    if(value){
-      router.push(value)
-    }
-  }
-
+const {categoriesData,loaddingProducts} = useContext(context)
   
+ if(loaddingProducts){
+  return <div><HomeSkeleton/></div>
+ }
   return <>
   <section>
     <div className=' flex items-start '>
        <aside className='border-r-2 hidden md:block  w-full max-w-[217px]  border-borderColor'>
         <ul className='pt-[40px] flex   flex-col gap-4 items-start w-full pr-[5px] md:pr-4 '>
-          <li className='w-full'>
-            <select onChange={handleChange} className='w-full  p-0' name="" id="">
-              <option className='w-full'  value="WomanFashion">Woman’s Fashion</option>
-              <option value="any">any</option>
-            </select>
-          </li>
-          <li className='w-full'>
-            <select onChange={handleChange} className='w-full p-0 ' name="" id="">
-              <option value="MenFashion">Men’s Fashion</option>
-              <option value="any">any</option>
-            </select>
-          </li>
-          <li>
-            <Link href={"/"}>Electronics</Link>
-          </li>
+         
+       
+         {
+          categoriesData?.map((category)=><li key={category.id} className='w-full'>
+            <Link href={`/Category/${category.id}`}>{category.name}</Link>
+          </li>)
+         }
 
-          <li>
-            <Link href={"/"}>Home & Lifestyle</Link>
-          </li>
-          <li>
-            <Link href={"/"}>Medicine</Link>
-          </li>
-          <li>
-            <Link href={"/"}>Sports & Outdoor</Link>
-          </li>
-          <li>
-            <Link href={"/"}>Baby’s & Toys</Link>
-          </li>
-          <li>
-            <Link href={"/"}>Groceries & Pets</Link>
-          </li>
-          <li>
-            <Link href={"/"}>Health & Beauty</Link>
-          </li>
+          
         </ul>
        </aside>
        <section className='bg-[#000000] text-white md:ml-[45px] ml-[0px]  w-full   mt-[40px] '>
       
 
 
-<div className='flex flex-col md:flex-row max-w-full lg:gap-[30px] items-center justify-center'>
+<div className='flex flex-col lg:flex-row max-w-full lg:gap-[30px] items-center justify-center'>
 
   <section className='pt-[58px] flex flex-col gap-5 pb-[47px] pl-[10px] md:pl-[64px]'>
     <div className='flex items-center gap-[10px] md:gap-[24px]'>
@@ -79,8 +51,8 @@ const Home = () => {
    <GoArrowRight size={24}/>
    </div>
   </section>
-  <section className='pt-4 max-w-[496px]'>
-    <Image src={hero} width={496} height={352} alt='hero'/>
+  <section className='pt-4 max-w-full'>
+    <Image src={hero} className='object-cover '  alt='hero'/>
   </section>
 </div>
 

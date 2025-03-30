@@ -1,20 +1,24 @@
 "use client";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Broad from "../Broad";
 import Shooter from "../../Images/Shooter.png"
 import Jacket from "../../Images/Jacket.png"
 import Image from "next/image";
 import Link from "next/link";
+import { context } from "@/Context/ContextData";
+import CartSkeleton from "./CartSkeleton";
 const CartPage = () => {
-  const [cart, setCart] = useState([
-    { id: 1, name: "LCD Monitor", price: 650, quantity: 1, image: Shooter },
-    { id: 2, name: "H1 Gamepad", price: 550, quantity: 2, image:Jacket },
-  ]);
+  const {cartData,loaddingCart} = useContext(context)
+  const [num, setNum] = useState(null)
+  const handlechange = (e)=>{
+    setNum(e.target.value)
 
-  const updateQuantity = (id, newQuantity) => {
-    setCart(cart.map(item => (item.id === id ? { ...item, quantity: newQuantity } : item)));
-  };
+  }
+  const handleQunatitiy =()=>{
+    
+  }
 
+  if(loaddingCart) return <CartSkeleton />;
   return (
     <div className="mx-[10px]  md:mx-[136px]  mb-[140px] mt-20">
       <div className="mb-20">
@@ -36,19 +40,23 @@ const CartPage = () => {
 
       {/* كل عنصر في السلة منفصل عن الآخر */}
       <div className="space-y-3 md:space-y-6">
-        {cart.map((item) => (
-          <div key={item.id} className="bg-white shadow-[0px_5px_15px_rgba(0,0,0,0.1)] w-full rounded-lg p-4 flex items-center justify-center md:justify-between">
+        {cartData?.map((item,idx) =>{
+          const cartImage = item.images?.find((img) => img.isPrimary) || item.images?.[0];
+
+          return(
+            <Link href={`/ProductDetails/${item.id}`} key={idx} className="bg-white transition-all shadow-sm hover:shadow-[0px_5px_15px_rgba(0,0,0,0.1)] w-full rounded-lg p-4 flex items-center justify-center md:justify-between">
             <div className="flex items-center flex-col md:flex-row gap-3 w-1/3">
-              <Image src={item.image} alt={item.name} className="w-[20px] h-[20px] md:w-[54px] md:h-[54px] object-cover" />
+              <Image src={cartImage?.imageUrl} alt={"cartimage"} width={50} height={50} className="w-[70px] transition-all hover:scale-[1.1] max-w-full h-[70px] rounded max-h-full object-cover" />
               <span>{item.name}</span>
             </div>
             <div className="w-1/5 ml-2 text-center">${item.price}</div>
             <div className="w-1/5 text-center">
-              <input type="number" defaultValue={1} className="border outline-none focus:outline-none text-center border-borderColor ml-3 rounded w-[72px]"/>
+              <input type="number" defaultValue={1} min={1}  onChange={handlechange} className="border outline-none focus:outline-none text-center border-borderColor ml-3 rounded w-[72px]"/>
             </div>
-            <div className="w-1/5 text-center">${item.price * item.quantity}</div>
-          </div>
-        ))}
+            <div className="w-1/5 text-center">$33</div>
+          </Link>
+          )
+        })}
       </div>
 
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between gap-2 md:gap-0 mt-6">

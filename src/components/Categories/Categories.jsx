@@ -11,6 +11,8 @@ import { IoStarSharp } from "react-icons/io5";
 import Link from 'next/link'
 import { Products } from '../FlashSales/products'
 import { categories } from './CategoriesLinks'
+import axios from 'axios'
+import { useQuery } from '@tanstack/react-query'
 
 const Categories = () => {
   // اعمل المنتجات يدوي ملف جيسون وتسجيل الدخول من ال api 
@@ -18,7 +20,7 @@ const Categories = () => {
 
 
  
- 
+
   return (
     <section className='md:mt-[140px] mt-[40px] border-b-2 border-borderColor   pb-[70px]'>
         <div className='flex items-end mb-[60px] justify-between'>
@@ -37,7 +39,6 @@ const Categories = () => {
         
        
       </div>
-
 
 
 
@@ -66,15 +67,15 @@ const Categories = () => {
       >
       {
         categories.map((category)=><SwiperSlide key={category.id}>
-          <Link href={category.href} className='flex transition-all hover:bg-secondary2 hover:text-white pb-[24px] pr-[35px] rounded pl-[34px] pt-[25px] w-full max-w-full md:max-w-[270px]  border border-borderColor items-center  flex-col justify-center gap-4'>
+          <div className='flex transition-all hover:bg-secondary2 hover:text-white pb-[24px] pr-[35px] rounded pl-[34px] pt-[25px] w-full max-w-full md:max-w-[270px]  border border-borderColor items-center  flex-col justify-center gap-4'>
   {category.icon}
   <h1>{category.title}</h1>
-</Link>
+</div>
         </SwiperSlide>)
       }
        
        
-      </Swiper>
+      </Swiper> 
     </section>
   )
 }

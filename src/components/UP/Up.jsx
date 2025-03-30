@@ -14,7 +14,7 @@ const Up = () => {
   }
   return <>
   {
-    show && <div onClick={handleTop} className='w-[46px] fixed right-[89px] bottom-8 cursor-pointer z-[100] h-[46px] flex items-center justify-center rounded-full transition-all hover:bg-secondary2 hover:text-white bg-secondary'>
+    show && <div onClick={handleTop} className='w-[46px] fixed right-[30px] md:right-[89px] bottom-8 cursor-pointer z-[100] h-[46px] flex items-center justify-center rounded-full transition-all hover:bg-secondary2 hover:text-white bg-secondary'>
     <LuArrowUp size={24}/>
   </div>
   }
